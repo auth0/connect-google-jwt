@@ -1,6 +1,6 @@
 {
   "name": "connect-google-jwt",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Vaidate google's JWTs middleware for connect.",
   "main": "index.js",
   "scripts": {
