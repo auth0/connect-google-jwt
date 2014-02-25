@@ -6,6 +6,8 @@ This middleware validate three things __expiration__, __audience__ and __signatu
 
 The signature is validated with the certs from https://www.googleapis.com/oauth2/v1/certs as stated in Google Docs [Validating an ID Token](https://developers.google.com/accounts/docs/OAuth2Login#validatinganidtoken). These certs are downloaded when your application starts and every 24hs.
 
+If you want to validate JWT's from other sources (not google) use [express-jwt](http://github.com/auth0/express-jwt).
+
 ## Install
 
 ~~~
