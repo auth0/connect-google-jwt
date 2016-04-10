@@ -10,7 +10,8 @@ function reload_validators (options) {
     Object.keys(certs).forEach(function (kid) {
       validators[kid] = expressJwt({
         audience: options.client_id,
-        secret: certs[kid]
+        secret: certs[kid],
+        issuer: ["accounts.google.com", "https://accounts.google.com"]
       });
     });
   });
@@ -28,7 +29,7 @@ module.exports = function (options) {
     var auth_header = req.get('Authorization');
 
     if (!auth_header || !auth_header.match(/^Bearer\s/)) {
-      return res.send(401, 'missing authorization header');
+      return res.status(401).send('missing authorization header');
     }
 
     var token = auth_header.replace(/^Bearer\s/, '');
