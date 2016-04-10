@@ -29,7 +29,7 @@ module.exports = function (options) {
     var auth_header = req.get('Authorization');
 
     if (!auth_header || !auth_header.match(/^Bearer\s/)) {
-      return res.send(401, 'missing authorization header');
+      return res.status(401).send('missing authorization header');
     }
 
     var token = auth_header.replace(/^Bearer\s/, '');
