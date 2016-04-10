@@ -10,7 +10,8 @@ function reload_validators (options) {
     Object.keys(certs).forEach(function (kid) {
       validators[kid] = expressJwt({
         audience: options.client_id,
-        secret: certs[kid]
+        secret: certs[kid],
+        issuer: ["accounts.google.com", "https://accounts.google.com"]
       });
     });
   });
